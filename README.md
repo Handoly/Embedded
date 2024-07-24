@@ -102,7 +102,17 @@ PWM控制模块根据当前环境参数（特别是光照强度）动态调整PW
 
 （2）MCU接收上位机的串口数据并进行解析；
 
-![图3 task_1任务发送邮箱部分截图](images/串口 关闭LCD.jpg)![imag![图3 task_1任务发送邮箱部分截图](images/串口 开启LCD.jpg)![imag![图3 task_1任务发送邮箱部分截图](images/串口 关闭采集.jpg)![imag![图3 task_1任务发送邮箱部分截图](images/串口 开启采集.jpg)
+![图3 task_1任务发送邮箱部分截图](images/串口 关闭LCD.jpg)!
+
+
+
+![图3 task_1任务发送邮箱部分截图](images/串口 开启LCD.jpg)![ima
+
+
+
+![图3 task_1任务发送邮箱部分截图](images/串口 关闭采集.jpg)
+
+![图3 task_1任务发送邮箱部分截图](images/串口 开启采集.jpg)
 
 ​												图8 上位机发送不同消息
 
