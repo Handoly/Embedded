@@ -30,7 +30,7 @@
 
 本系统以STM32F4开发板为核心，采用模块化设计理念，包括数据采集、数据处理、LCD显示、PWM控制、串口通信、触摸控制及按键控制等模块。这些模块之间通过uCOS-II操作系统实现任务调度和通信，确保系统的高效稳定运行。软件系统流程图如下所示：
 
-![image-20240724230320476](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230320476.png)
+![图1 软件系统流程图](images/简易装置检测流程图（改善）.jpg)
 
 ​												图1 软件系统流程图
 
@@ -54,7 +54,7 @@ PWM控制模块根据当前环境参数（特别是光照强度）动态调整PW
 
 利用任务调度器实现任务的并发执行和通信，确保系统的高效运行。
 
-![image-20240724230425727](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230425727.png)
+![图2.Start_task任务代码部分截图](images/Start_task任务代码部分截图.png)
 
 ​									图2.Start_task任务代码部分截图
 
@@ -62,11 +62,11 @@ PWM控制模块根据当前环境参数（特别是光照强度）动态调整PW
 
 在uCOS-II操作系统中，使用start_task任务创建邮箱，使用task1发送邮箱，task3接受邮箱。
 
-![img](file:///C:/Users/16140/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png)
+![图3 task_1任务发送邮箱部分截图](images/task_1任务发送邮箱部分截图.png)
 
-​									图3 task_1任务发送邮箱部分截图
+​										图3 task_1任务发送邮箱部分截图
 
-![image-20240724230501184](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230501184.png)
+![图3 task_1任务发送邮箱部分截图](images/task_3任务接受邮箱信息部分截图.png)
 
 ​									图4 task_3任务接受邮箱信息部分截图
 
@@ -74,7 +74,7 @@ PWM控制模块根据当前环境参数（特别是光照强度）动态调整PW
 
 编写STM32F4开发板的驱动程序，包括温度传感器驱动、光敏传感器驱动、LCD驱动、PWM驱动等。驱动程序需遵循模块化设计原则，便于维护和扩展。
 
-![image-20240724230518319](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230518319.png)
+![图3 task_1任务发送邮箱部分截图](images/驱动程序.c文件.png)
 
 ​											图5.驱动程序.c文件
 
@@ -84,9 +84,9 @@ PWM控制模块根据当前环境参数（特别是光照强度）动态调整PW
 
 采用图形化设计工具进行界面设计，提高界面的美观性和易用性。
 
-![image-20240724230539795](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230539795.png)
+![图3 task_1任务发送邮箱部分截图](images/LCD显示和触摸界面.png)
 
-​										图6 LCD显示和触摸界面
+​											图6 LCD显示和触摸界面
 
 5.系统测试与优化
 
@@ -96,13 +96,13 @@ PWM控制模块根据当前环境参数（特别是光照强度）动态调整PW
 
 （1）   利用芯片内部温度及外部光敏传感器获取环境参数（温度、光线强度），并将环境参数输出到LCD显示屏进行显示；
 
-![img](file:///C:/Users/16140/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg)
+![图3 task_1任务发送邮箱部分截图](images/采集.jpg)
 
 ​													图7 采集并显示功能
 
 （2）MCU接收上位机的串口数据并进行解析；
 
-![image-20240724230648205](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230648205.png)![image-20240724230701406](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230701406.png)![image-20240724230709625](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230709625.png)![image-20240724230715292](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230715292.png)
+![图3 task_1任务发送邮箱部分截图](images/串口 关闭LCD.jpg)![imag![图3 task_1任务发送邮箱部分截图](images/串口 开启LCD.jpg)![imag![图3 task_1任务发送邮箱部分截图](images/串口 关闭采集.jpg)![imag![图3 task_1任务发送邮箱部分截图](images/串口 开启采集.jpg)
 
 ​												图8 上位机发送不同消息
 
@@ -136,7 +136,7 @@ PWM控制模块根据当前环境参数（特别是光照强度）动态调整PW
 
 （1）触摸功能
 
-![image-20240724230813405](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230813405.png)
+![图3 task_1任务发送邮箱部分截图](images/触摸功能.png)
 
 ​													图9 触摸功能
 
@@ -146,7 +146,7 @@ PWM控制模块根据当前环境参数（特别是光照强度）动态调整PW
 
 当触摸“关闭采集”部分时，MCU发出关闭采集命令，内部温度传感器和光照强度传感器被关闭，停止采集，并在LCD上显示“OFF”字样，如图10所示。
 
-![image-20240724230840470](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230840470.png)
+![图3 task_1任务发送邮箱部分截图](images/LCD显示“OFF”.png)
 
 ​										图10 触摸关闭采集时，LCD显示“OFF”
 
@@ -154,11 +154,11 @@ PWM控制模块根据当前环境参数（特别是光照强度）动态调整PW
 
 在task5任务中读取对图片取模后存储在数组中的数据，然后再LCD上进行显示，同时，关闭采集功能。
 
-![image-20240724230907294](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230907294.png)
+![图3 task_1任务发送邮箱部分截图](images/显示特朗普.jpg)
 
 ​										图11 显示美国前总统特朗普演讲照片
 
-![image-20240724230919791](C:\Users\16140\AppData\Roaming\Typora\typora-user-images\image-20240724230919791.png)
+![图3 task_1任务发送邮箱部分截图](images/显示刘亦菲.jpg)
 
 ​											图12 显示中国女明星刘亦菲照片
 
